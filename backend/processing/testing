@@ -1,0 +1,45 @@
+import sys
+import os
+import importlib
+import platform
+import subprocess
+
+required_packages = [
+    "torch", "transformers", "datasets", "scipy", "accelerate",
+    "sentencepiece", "peft", "bitsandbytes"  # common in LLM setups
+]
+
+print("🔍 Python Executable:", sys.executable)
+print("📦 Python Version:", sys.version.split()[0])
+print("💻 OS:", platform.system(), platform.release())
+print("=" * 50)
+
+def check_package(pkg):
+    try:
+        importlib.import_module(pkg)
+        print(f"✅ {pkg} is installed.")
+    except ImportError:
+        print(f"❌ {pkg} NOT found! You can install it using: pip install {pkg}")
+    except Exception as e:
+        print(f"⚠ {pkg} import failed: {str(e)}")
+
+for package in required_packages:
+    check_package(package)
+
+print("\n🧪 Checking current folder for conflicting filenames:")
+conflict_files = ["torch.py", "transformers.py", "datasets.py"]
+files_in_dir = os.listdir(".")
+
+for file in files_in_dir:
+    if file in conflict_files:
+        print(f"❌ Conflict: {file} in current directory. Rename it!")
+
+print("\n📚 Pip freeze check (short):")
+try:
+    installed = subprocess.check_output([sys.executable, "-m", "pip", "freeze"], text=True).splitlines()
+    for pkg in required_packages:
+        match = [line for line in installed if pkg.lower() in line.lower()]
+        if match:
+            print(f"📌 {pkg}: {match[0]}")
+except Exception as e:
+    print("Could not get pip freeze info:", e)

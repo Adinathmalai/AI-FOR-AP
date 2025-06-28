@@ -1,0 +1,12 @@
+streamlit
+openai
+pandas
+pdfplumber
+python-docx
+openpyxl
+plotly
+folium
+speechrecognition
+langchain
+supabase
+python-dotenv

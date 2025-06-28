@@ -1,0 +1,74 @@
+/* styles.css */
+
+/* Set background color and font */
+body {
+    background-color: #f4f7fc;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Title styling */
+h1, h2, h3 {
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+/* File uploader */
+[data-testid="stFileUploaderDropzone"] {
+    border: 2px dashed #1abc9c;
+    background-color: #ecf0f1;
+}
+
+/* Buttons */
+button {
+    background-color: #1abc9c !important;
+    color: white !important;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #16a085 !important;
+}
+
+/* Chat Box */
+.chat-container {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Chat bubble styles */
+.chat-user {
+    background-color: #d1f7c4;
+    padding: 8px;
+    margin: 6px;
+    border-radius: 10px;
+    text-align: right;
+}
+
+.chat-ai {
+    background-color: #e1eaf2;
+    padding: 8px;
+    margin: 6px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+/* Form inputs */
+input[type="text"], select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Success message */
+.success {
+    color: green;
+    font-weight: bold;
+}
